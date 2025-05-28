@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grow Matic Dashboard</title>
+    <meta
+      name="description"
+      content="Monitoring and control system for your smart garden"
+    />
+    <meta name="theme-color" content="#00BFA5" />
+    <link rel="manifest" href="manifest.json" id="manifest-placeholder" />
+    <link rel="icon" type="image/png" href="Assets/logo.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="Assets/logo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="Assets/style.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header -->
+      <div class="header">
+        <div class="user-info">
+          <div>
+            <div class="user-greeting"><b>DASHBOARD</b></div>
+          </div>
+        </div>
+        <div class="weather-info">
+          <i class="fas fa-cloud"></i>
+          <div>
+            <div class="weather-temp" id="outside-temp">29°</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Cards -->
+
+      <div class="card-grid">
+        <!-- Temperature Card -->
+        <div class="card metric-card">
+          <div class="card-icon">
+            <i class="fas fa-temperature-high"></i>
+          </div>
+          <div class="card-title">Suhu</div>
+          <div class="metric-value">
+            <div class="value" id="suhu-value">--</div>
+            <div class="unit">°C</div>
+          </div>
+          <div class="switch-container">
+            <span>Status</span>
+            <span class="active-devices">Real-time</span>
+          </div>
+        </div>
+
+        <!-- Humidity Card -->
+        <div class="card metric-card">
+          <div class="card-icon accent">
+            <i class="fas fa-tint"></i>
+          </div>
+          <div class="card-title">Kelembaban</div>
+          <div class="metric-value">
+            <div class="value" id="kelembaban-value">--</div>
+            <div class="unit">%</div>
+          </div>
+          <div class="switch-container">
+            <span>Status</span>
+            <span class="active-devices">Real-time</span>
+          </div>
+        </div>
+
+        <!-- Relay Control Card -->
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-power-off"></i>
+          </div>
+          <div class="card-title">Pompa</div>
+          <div class="active-devices" id="relay-status">Status: OFF</div>
+          <div class="switch-container">
+            <span>Kontrol</span>
+            <label class="switch">
+              <input type="checkbox" id="pompa-toggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Mode Card -->
+        <div class="card">
+          <div class="card-icon accent">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="card-title">Mode</div>
+          <div class="active-devices" id="mode-status">Status: Otomatis</div>
+          <div class="switch-container">
+            <span>Otomatis</span>
+            <label class="switch">
+              <input type="checkbox" id="mode-toggle" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consumption Chart -->
+      <div class="consumption">
+        <div class="consumption-header">
+          <div>
+            <div class="consumption-cost">Data History</div>
+            <div class="consumption-label">Monitoring</div>
+          </div>
+          <select class="period-selector">
+            <option>Day</option>
+            <option>Week</option>
+            <option>Month</option>
+          </select>
+        </div>
+        <div class="chart-container">
+          <canvas id="consumption-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

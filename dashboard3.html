@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grow Matic Dashboard</title>
+    <meta
+      name="description"
+      content="Monitoring and control system for your smart garden"
+    />
+    <meta name="theme-color" content="#00BFA5" />
+    <link rel="manifest" href="manifest.json" id="manifest-placeholder" />
+    <link rel="icon" type="image/png" href="Assets/logo.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="Assets/logo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://growmatic.tifpsdku.com/Assets/style.css"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>Menu</h2>
+        <button class="close-btn" id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="dashboard.html"><i class="fas fa-1"></i> Dashboard 1</a>
+        </li>
+        <li>
+          <a href="dashboard2.html"><i class="fas fa-2"></i> Dashboard 2</a>
+        </li>
+        <li>
+          <a href="dashboard3.html"><i class="fas fa-3"></i> Dashboard 3</a>
+        </li>
+        <li>
+          <a href="dashboard4.html"><i class="fas fa-4"></i> Dashboard 4</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="app-container">
+      <!-- Header -->
+      <div class="header">
+        <button class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="user-info">
+          <div>
+            <div class="user-greeting"><b>DASHBOARD 3</b></div>
+          </div>
+        </div>
+        <div class="weather-info">
+          <i class="fas fa-cloud"></i>
+          <div>
+            <div class="weather-temp" id="outside-temp">29°</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Cards -->
+      <div class="card-grid">
+        <!-- Temperature Card -->
+        <div class="card metric-card">
+          <div class="card-icon">
+            <i class="fas fa-temperature-high"></i>
+          </div>
+          <div class="card-title">Suhu</div>
+          <div class="metric-value">
+            <div class="value" id="suhu-value">--</div>
+            <div class="unit">°C</div>
+          </div>
+          <div class="switch-container">
+            <span>Status</span>
+            <span class="active-devices">Real-time</span>
+          </div>
+        </div>
+
+        <!-- Humidity Card -->
+        <div class="card metric-card">
+          <div class="card-icon accent">
+            <i class="fas fa-tint"></i>
+          </div>
+          <div class="card-title">Kelembaban</div>
+          <div class="metric-value">
+            <div class="value" id="kelembaban-value">--</div>
+            <div class="unit">%</div>
+          </div>
+          <div class="switch-container">
+            <span>Status</span>
+            <span class="active-devices">Real-time</span>
+          </div>
+        </div>
+
+        <!-- Relay Control Card -->
+        <div class="card">
+          <div class="card-icon">
+            <i class="fas fa-power-off"></i>
+          </div>
+          <div class="card-title">Pompa</div>
+          <div class="active-devices" id="relay-status">Status: OFF</div>
+          <div class="switch-container">
+            <span>Kontrol</span>
+            <label class="switch">
+              <input type="checkbox" id="pompa-toggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Mode Card -->
+        <div class="card">
+          <div class="card-icon accent">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="card-title">Mode</div>
+          <div class="active-devices" id="mode-status">Status: Otomatis</div>
+          <div class="switch-container">
+            <span>Otomatis</span>
+            <label class="switch">
+              <input type="checkbox" id="mode-toggle" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consumption Chart -->
+      <div class="consumption">
+        <div class="consumption-header">
+          <div>
+            <div class="consumption-cost">Data History</div>
+            <div class="consumption-label">Monitoring</div>
+          </div>
+          <select class="period-selector">
+            <option>Day</option>
+            <option>Week</option>
+            <option>Month</option>
+          </select>
+        </div>
+        <div class="chart-container">
+          <canvas id="consumption-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="bottom-nav">
+        <a href="dashboard.html" class="nav-item active">
+          <i class="fas fa-home nav-icon"></i>
+          <span>Home</span>
+        </a>
+        <a href="camera.html" class="nav-item">
+          <i class="fas fa-camera nav-icon"></i>
+          <span>Camera</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <i class="fas fa-user nav-icon"></i>
+          <span>Profile</span>
+        </a>
+      </div>
+    </div>
+
+    <script src="script3.js"></script>
+  </body>
+</html>
