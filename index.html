@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grow Matic - Login</title>
+    <meta
+      name="description"
+      content="Monitoring and control system for your smart garden"
+    />
     <meta name="theme-color" content="#00BFA5">
-        <link rel="icon" type="image/png" href="https://growmatic.tifpsdku.com/Assets/logo.png" sizes="192x192">
+    <link rel="manifest" href="manifest.json" id="manifest-placeholder" />
+    <link rel="icon" type="image/png" href="assets/images/logo.png" sizes="192x192">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="Assets/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/loader.css">
 </head>
 <body class="login-page">
     <!-- Loader overlay -->
@@ -28,12 +35,12 @@
             <circle class="back" cx="17" cy="17" r="14"></circle>
             <circle class="front" cx="17" cy="17" r="14"></circle>
         </svg>
-        <div class="text" data-text="Login...."></div>
+        <div class="text" data-text="Loading..."></div>
     </div>
     
     <div class="login-container">
         <div class="login-header">
-            <img src="Assets/logo.png" alt="Grow Matic Logo" class="login-logo">
+            <img src="assets/images/logo.png" alt="Grow Matic Logo" class="login-logo">
             <h1>Grow Matic</h1>
             <p>Smart Garden Monitoring System</p>
         </div>
@@ -50,66 +57,8 @@
             <button type="submit" class="login-btn">Login</button>
         </form>  
     </div>
-    
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", async function (e) {
-        e.preventDefault();
 
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        const loader = document.getElementById("wifi-loader");
-        const textElement = loader.querySelector('.text');
-        loader.style.display = "flex";
-        document.getElementById("loaderOverlay").style.display = "block";
-
-        try {
-            const res = await fetch("https://growmatic.tifpsdku.com/api/admin-login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ username, password })
-            });
-
-            const data = await res.json();
-            if (res.ok) {
-                // Change loader text to "Success"
-                textElement.setAttribute("data-text", "Loading..");
-
-                setTimeout(() => {
-                    window.location.href = "dashboard.html";
-                }, 3000);
-            } else {
-                loader.style.display = "none";
-                document.getElementById("loaderOverlay").style.display = "none";
-                showToast(data.message);
-            }
-        } catch (err) {
-            loader.style.display = "none";
-            document.getElementById("loaderOverlay").style.display = "none";
-            showToast("Terjadi kesalahan: " + err.message);
-        }
-    });
-
-    // Function to show toast notification
-    function showToast(message) {
-        const toast = document.createElement("div");
-        toast.classList.add("toast");
-        toast.textContent = message;
-        document.body.appendChild(toast);
-
-        setTimeout(() => {
-            toast.classList.add("show");
-        }, 100);
-
-        setTimeout(() => {
-            toast.classList.remove("show");
-            setTimeout(() => {
-                document.body.removeChild(toast);
-            }, 300);
-        }, 3000);
-    }
-    </script>
+    <script src="assets/js/login.js"></script>
+    <script src="assets/js/app-core.js"></script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+.settings-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-card {
+    background: var(--neumorphism-bg);
+    border-radius: var(--neumorphism-element-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--neumorphism-shadow);
+}
+
+.settings-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: var(--neumorphism-element-radius);
+    border: none;
+    background: var(--neumorphism-bg);
+    box-shadow: inset 3px 3px 6px var(--neumorphism-dark-shadow),
+        inset -3px -3px 6px var(--neumorphism-light-shadow);
+    font-size: 16px;
+}
+
+.btn-save {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: var(--neumorphism-element-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 6px var(--neumorphism-dark-shadow),
+        -3px -3px 6px var(--neumorphism-light-shadow);
+}
+
+.btn-save:hover {
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.device-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.status-connected {
+    background: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+}
+
+.status-disconnected {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+}

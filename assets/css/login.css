@@ -1,0 +1,133 @@
+
+/* Login Page Styles (Jika digunakan dan ingin di-neumorphism-kan) */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--neumorphism-bg-color); /* Latar belakang neumorphism */
+}
+
+.login-container {
+    background-color: var(--neumorphism-bg-color);
+    border-radius: 25px; /* Radius lebih besar */
+    padding: 40px; /* Padding lebih besar */
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0px 10px -20px var(--neumorphism-dark-shadow),
+        -10px 0px 20px var(--neumorphism-light-shadow);
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-logo {
+    /* Contoh jika logo ingin diberi efek neumorphism */
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    /* background-color: var(--neumorphism-bg-color); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+        inset -5px -5px 10px var(--neumorphism-light-shadow); */
+    /* Jika logo adalah <img>, styling ini mungkin perlu disesuaikan atau diterapkan pada container-nya */
+}
+.login-logo img {
+    /* Jika logo adalah gambar di dalam div */
+    max-width: 60%;
+    max-height: 60%;
+}
+
+.login-header h1 {
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Gap lebih besar */
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 20px; /* Posisi ikon */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light-text);
+    font-size: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 18px 18px 18px 50px; /* Padding disesuaikan dengan ikon */
+    border: none; /* Hapus border default */
+    border-radius: var(--neumorphism-element-radius);
+    font-size: 16px;
+    background-color: var(--neumorphism-bg-color);
+    color: var(--text-color);
+    box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+        inset -5px -5px 10px var(--neumorphism-light-shadow);
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    outline: none;
+    /* Bisa ditambahkan efek glow tipis jika diinginkan saat focus */
+    box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+        inset -5px -5px 10px var(--neumorphism-light-shadow),
+        0 0 0 2px var(--primary-color); /* Contoh glow */
+}
+
+.login-btn {
+    background-color: var(--neumorphism-bg-color);
+    color: var(--primary-color); /* Warna teks tombol */
+    border: none;
+    padding: 18px; /* Padding lebih besar */
+    border-radius: var(--neumorphism-element-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
+        -5px -5px 10px var(--neumorphism-light-shadow);
+}
+
+.login-btn:hover {
+    color: var(--primary-hover);
+}
+.login-btn:active {
+    box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+        inset -5px -5px 10px var(--neumorphism-light-shadow);
+}
+
+.login-footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.login-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.login-footer a:hover {
+    text-decoration: underline;
+}

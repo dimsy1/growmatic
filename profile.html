@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Matic - Profile</title>
+    <meta name="theme-color" content="#00BFA5">
+    <link rel="manifest" href="manifest.json" id="manifest-placeholder" />
+    <link rel="icon" type="image/png" href="assets/images/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/images/logo.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>Menu</h2>
+        <button class="close-btn" id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <ul class="sidebar-menu">
+        <!-- Dashboard dengan sub-menu -->
+        <li class="has-submenu">
+          <a href="#" class="submenu-toggle">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboards</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="submenu">
+            <li><a href="dashboard.html"><i class="fas fa-circle-notch"></i> Dashboard 1</a></li>
+            <li><a href="dashboard2.html"><i class="fas fa-circle-notch"></i> Dashboard 2</a></li>
+            <li><a href="dashboard3.html"><i class="fas fa-circle-notch"></i> Dashboard 3</a></li>
+            <li><a href="dashboard4.html"><i class="fas fa-circle-notch"></i> Dashboard 4</a></li>
+          </ul>
+        </li>
+        
+        <!-- Setting -->
+        <li>
+          <a href="setting.html">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+        
+        <!-- Profile -->
+        <li>
+          <a href="profile.html">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+          </a>
+        </li>
+        
+        <!-- Spacer untuk memisahkan konten dengan logout -->
+        <div class="menu-spacer"></div>
+        
+        <!-- Logout -->
+        <li class="logout-item">
+          <a href="logout.html">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="user-info">
+                <div>
+                    <div class="user-greeting"><b>MY PROFILE</b></div>
+                </div>
+            </div>
+            <div class="weather-info">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+
+        <!-- Main Profile Content -->
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <img src="assets/images/profile.png" alt="Profile Picture" class="profile-avatar">
+                <h1 class="profile-name">Suryanto</h1>
+                <div class="profile-role">Administrator</div>
+                <button class="btn-edit">
+                    <i class="fas fa-edit"></i> Edit Profile
+                </button>
+            </div>
+            
+            <!-- User Stats -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-value">128</div>
+                    <div class="stat-label">Days Active</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">A+</div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+            
+            <!-- Personal Information Card -->
+            <div class="profile-card">
+                <h2 class="card-title">
+                    <i class="fas fa-id-card"></i> Personal Information
+                </h2>
+                
+                <div class="info-group">
+                    <div class="info-label">Full Name</div>
+                    <div class="info-value">Suryanto</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Email</div>
+                    <div class="info-value">suryanto@growmatic.com</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Phone</div>
+                    <div class="info-value">0812345789</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Join Date</div>
+                    <div class="info-value">14 Juli 2025</div>
+                </div>
+            </div>
+            
+            <!-- Account Settings Card -->
+            <div class="profile-card">
+                <h2 class="card-title">
+                    <i class="fas fa-user-cog"></i> Account Settings
+                </h2>
+                
+                <div class="info-group">
+                    <div class="info-label">Username</div>
+                    <div class="info-value">admin_gromatic</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Password</div>
+                    <div class="info-value">••••••••</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">2FA</div>
+                    <div class="info-value">Enabled <span style="color: #2ecc71;">(Mobile Authenticator)</span></div>
+                </div>
+                
+                <button class="btn-edit" style="margin-top: 15px;">
+                    <i class="fas fa-lock"></i> Change Password
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/profile.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/app-core.js"></script>
+</body>
+</html>

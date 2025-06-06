@@ -1,0 +1,118 @@
+.profile-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
+        -8px -8px 15px var(--neumorphism-light-shadow);
+    margin-bottom: 20px;
+    border: 3px solid var(--primary-color);
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.profile-role {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.profile-card {
+    background: var(--neumorphism-bg);
+    border-radius: var(--neumorphism-element-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--neumorphism-shadow);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+}
+
+.info-group {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.info-label {
+    width: 150px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.info-value {
+    flex: 1;
+    color: var(--text-color-light);
+}
+
+.btn-edit {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--neumorphism-element-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 6px var(--neumorphism-dark-shadow),
+        -3px -3px 6px var(--neumorphism-light-shadow);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-edit:hover {
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--neumorphism-element-radius);
+    background: var(--neumorphism-bg);
+    box-shadow: var(--neumorphism-shadow);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+}
