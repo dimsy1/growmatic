@@ -467,17 +467,17 @@ input:checked + .slider:before {
     background: none;
     border: none;
     color: var(--text-color);
-    font-size: 22px; /* Sedikit lebih besar */
+    font-size: 22px; 
     cursor: pointer;
-    padding: 8px; /* Padding untuk area klik */
-    border-radius: 50%;
+    padding: 8px;
+    /* border-radius: 50%;
     box-shadow: 4px 4px 8px var(--neumorphism-dark-shadow),
-        -4px -4px 8px var(--neumorphism-light-shadow);
+        -4px -4px 8px var(--neumorphism-light-shadow); */
 }
-.close-btn:active {
+/* .close-btn:active {
     box-shadow: inset 4px 4px 8px var(--neumorphism-dark-shadow),
         inset -4px -4px 8px var(--neumorphism-light-shadow);
-}
+} */
 
 .sidebar-menu {
     list-style: none;
@@ -540,14 +540,14 @@ input:checked + .slider:before {
     height: 80px;
     margin-bottom: 15px;
     border-radius: 50%;
-    background-color: var(--neumorphism-bg-color);
+    /* background-color: var(--neumorphism-bg-color); */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
-        inset -5px -5px 10px var(--neumorphism-light-shadow);
+    /* box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+        inset -5px -5px 10px var(--neumorphism-light-shadow); */
     /* Jika logo adalah <img>, styling ini mungkin perlu disesuaikan atau diterapkan pada container-nya */
 }
 .login-logo img {
@@ -666,59 +666,6 @@ input:checked + .slider:before {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* Overlay pada .camera-view, bukan .camera-overlay terpisah jika ada */
-.camera-view .camera-overlay {
-    /* Pastikan ini menargetkan overlay di dalam .camera-view */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 15px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    border-bottom-left-radius: var(
-        --neumorphism-card-radius
-    ); /* Agar sesuai dengan container */
-    border-bottom-right-radius: var(--neumorphism-card-radius);
-}
-
-.camera-status {
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.camera-status i {
-    font-size: 10px;
-}
-
-.camera-status.active {
-    color: #4caf50; /* Bisa disesuaikan */
-}
-
-.camera-status.active i {
-    color: #4caf50; /* Bisa disesuaikan */
-}
-
-.camera-time {
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-.camera-controls {
-    /* Kontrol di bawah view kamera */
-    display: grid; /* Menggunakan grid untuk tata letak yang lebih baik */
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(100px, 1fr)
-    ); /* Tombol responsif */
-    gap: 15px;
-    margin-bottom: 20px;
 }
 
 .control-btn {
@@ -978,9 +925,6 @@ input:checked + .slider:before {
     font-size: 18px;
 }
 
-/* Wifi Loader (jika ingin disesuaikan dengan neumorphism) */
-/* Styling loader bisa kompleks untuk diubah sepenuhnya ke neumorphism tanpa mengubah SVG/struktur */
-/* Untuk loader, mungkin lebih baik mempertahankan gaya aslinya atau menyederhanakannya */
 #wifi-loader {
     /* Variabel warna loader bisa disesuaikan agar lebih cocok dengan palet neumorphism jika memungkinkan */
     --front-color: var(--primary-color); /* Sesuaikan dengan primary color */
@@ -994,9 +938,9 @@ input:checked + .slider:before {
     justify-content: center;
     align-items: center;
     /* Untuk menempatkan loader di tengah dengan neumorphism */
-    background-color: var(--neumorphism-bg-color);
-    box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
-        -8px -8px 15px var(--neumorphism-light-shadow);
+    /* background-color: var(--neumorphism-bg-color); */
+    /* box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
+        -8px -8px 15px var(--neumorphism-light-shadow); */
     /* Sisanya biarkan default atau sesuaikan dengan hati-hati */
     display: none;
     position: fixed;

@@ -24,12 +24,38 @@
     />
   </head>
   <body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>Menu</h2>
+        <button class="close-btn" id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="dashboard.html">Dashboard 1</a>
+        </li>
+        <li>
+          <a href="dashboard2.html">Dashboard 2</a>
+        </li>
+        <li>
+          <a href="dashboard3.html">Dashboard 3</a>
+        </li>
+        <li>
+          <a href="dashboard4.html">Dashboard 4</a>
+        </li>
+      </ul>
+    </div>
     <div class="app-container">
       <!-- Header -->
       <div class="header">
+        <button class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
         <div class="user-info">
           <div>
-            <div class="user-greeting"><b>DASHBOARD</b></div>
+            <div class="user-greeting"><b>DASHBOARD 1</b></div>
           </div>
         </div>
         <div class="weather-info">
@@ -127,6 +153,19 @@
       </div>
     </div>
 
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const openBtn = document.querySelector('.menu-btn');
+      const closeBtn = document.getElementById('close-sidebar');
+
+      openBtn.addEventListener('click', () => {
+          sidebar.style.transform = 'translateX(0)';
+      });
+
+      closeBtn.addEventListener('click', () => {
+          sidebar.style.transform = 'translateX(-100%)';
+      });
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

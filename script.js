@@ -357,16 +357,4 @@ window.onload = function() {
     // Set up periodic data refresh (every 2 seconds)
     setInterval(fetchThingerData, 2000);
 };
-setInterval(fetchThingerData, 10000); // setiap 10 detik
-
-const sidebar = document.getElementById('sidebar');
-const openBtn = document.querySelector('.menu-btn');
-const closeBtn = document.getElementById('close-sidebar');
-
-openBtn.addEventListener('click', () => {
-    sidebar.style.transform = 'translateX(0)';
-});
-
-closeBtn.addEventListener('click', () => {
-    sidebar.style.transform = 'translateX(-100%)';
-});
+setInterval(fetchThingerData, 10000);

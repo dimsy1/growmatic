@@ -20,7 +20,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://growmatic.tifpsdku.com/Assets/style.css"
+      href="Assets/style.css"
     />
   </head>
   <body>
@@ -34,16 +34,16 @@
       </div>
       <ul class="sidebar-menu">
         <li>
-          <a href="dashboard.html"><i class="fas fa-1"></i> Dashboard 1</a>
+          <a href="dashboard.html">Dashboard 1</a>
         </li>
         <li>
-          <a href="dashboard2.html"><i class="fas fa-2"></i> Dashboard 2</a>
+          <a href="dashboard2.html">Dashboard 2</a>
         </li>
         <li>
-          <a href="dashboard3.html"><i class="fas fa-3"></i> Dashboard 3</a>
+          <a href="dashboard3.html">Dashboard 3</a>
         </li>
         <li>
-          <a href="dashboard4.html"><i class="fas fa-4"></i> Dashboard 4</a>
+          <a href="dashboard4.html">Dashboard 4</a>
         </li>
       </ul>
     </div>
@@ -151,24 +151,21 @@
           <canvas id="consumption-chart"></canvas>
         </div>
       </div>
-
-      <!-- Bottom Navigation -->
-      <div class="bottom-nav">
-        <a href="dashboard.html" class="nav-item active">
-          <i class="fas fa-home nav-icon"></i>
-          <span>Home</span>
-        </a>
-        <a href="camera.html" class="nav-item">
-          <i class="fas fa-camera nav-icon"></i>
-          <span>Camera</span>
-        </a>
-        <a href="profile.html" class="nav-item">
-          <i class="fas fa-user nav-icon"></i>
-          <span>Profile</span>
-        </a>
-      </div>
     </div>
 
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const openBtn = document.querySelector('.menu-btn');
+      const closeBtn = document.getElementById('close-sidebar');
+
+      openBtn.addEventListener('click', () => {
+          sidebar.style.transform = 'translateX(0)';
+      });
+
+      closeBtn.addEventListener('click', () => {
+          sidebar.style.transform = 'translateX(-100%)';
+      });
+    </script>
     <script src="script3.js"></script>
   </body>
 </html>
