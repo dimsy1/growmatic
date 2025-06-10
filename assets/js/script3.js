@@ -2,7 +2,7 @@
 const USERNAME = "dimas-y";
 const DEVICE_ID = "grow_matic_3";
 const API_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJncm93X21hdGljXzMiLCJpYXQiOjE3NDY2NzYzMjcsImp0aSI6IjY4MWMyYTY3YWI1ODQxZDNlMzBiYjFjNyIsInN2ciI6ImFwLW5vcnRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.6wRUib0k_v7lyUzg3zry4eIE5nMvR_AV7ycnPUsLAgo";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJ0b2tlbl9kYXNoYm9hcmRfMyIsInN2ciI6ImFwLXNvdXRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.8TOw6eyDEialwoPcVBgyEV45lUcmxvRjVmUuRRWtvZY";
 
 // Chart reference
 let consumptionChart;
@@ -23,10 +23,10 @@ async function fetchThingerData() {
   try {
     // Get sensor data
     const sensorResponse = await axios.get(
-      `https://backend.thinger.io/v3/users/subektibimowicaksono/devices/grow_matic/resources/sensor`, // Belum diganti
+      `https://backend.thinger.io/v3/users/dimas-y/devices/grow_matic_3/resources/sensor`,
       {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJncm93X21hdGljXzMiLCJpYXQiOjE3NDY2NzYzMjcsImp0aSI6IjY4MWMyYTY3YWI1ODQxZDNlMzBiYjFjNyIsInN2ciI6ImFwLW5vcnRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.6wRUib0k_v7lyUzg3zry4eIE5nMvR_AV7ycnPUsLAgo`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJ0b2tlbl9kYXNoYm9hcmRfMyIsInN2ciI6ImFwLXNvdXRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.8TOw6eyDEialwoPcVBgyEV45lUcmxvRjVmUuRRWtvZY`,
         },
       }
     );
@@ -181,11 +181,11 @@ async function fetchHistoricalData() {
 async function controlRelay(state) {
   try {
     await axios.post(
-      `https://backend.thinger.io/v3/users/subektibimowicaksono/devices/grow_matic/resources/relay`, //belum diganti
+      `https://backend.thinger.io/v3/users/dimas-y/devices/grow_matic_3/resources/relay`,
       state,
       {
         headers: {
-          Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJncm93X21hdGljXzMiLCJpYXQiOjE3NDY2NzYzMjcsImp0aSI6IjY4MWMyYTY3YWI1ODQxZDNlMzBiYjFjNyIsInN2ciI6ImFwLW5vcnRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.6wRUib0k_v7lyUzg3zry4eIE5nMvR_AV7ycnPUsLAgo`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJ0b2tlbl9kYXNoYm9hcmRfMyIsInN2ciI6ImFwLXNvdXRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.8TOw6eyDEialwoPcVBgyEV45lUcmxvRjVmUuRRWtvZY`,
           "Content-Type": "application/json",
         },
       }
@@ -203,11 +203,11 @@ async function controlRelay(state) {
 async function setMode(autoMode) {
   try {
     await axios.post(
-      `https://backend.thinger.io/v3/users/subektibimowicaksono/devices/grow_matic/resources/mode`, // Belum diganti
+      `https://backend.thinger.io/v3/users/dimas-y/devices/grow_matic_3/resources/mode`,
       autoMode,
       {
         headers: {
-          Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXYiOiJncm93X21hdGljXzMiLCJpYXQiOjE3NDY2NzYzMjcsImp0aSI6IjY4MWMyYTY3YWI1ODQxZDNlMzBiYjFjNyIsInN2ciI6ImFwLW5vcnRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.6wRUib0k_v7lyUzg3zry4eIE5nMvR_AV7ycnPUsLAgo`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJ0b2tlbl9kYXNoYm9hcmRfMyIsInN2ciI6ImFwLXNvdXRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.8TOw6eyDEialwoPcVBgyEV45lUcmxvRjVmUuRRWtvZY`,
           "Content-Type": "application/json",
         },
       }
