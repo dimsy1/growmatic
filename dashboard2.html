@@ -91,7 +91,7 @@
         <div class="weather-info">
           <i class="fas fa-cloud"></i>
           <div>
-            <div class="weather-temp" id="outside-temp">29°</div>
+            <div class="weather-temp" id="outside-temp">--°</div>
           </div>
         </div>
       </div>
@@ -171,9 +171,9 @@
             <div class="consumption-label">Monitoring</div>
           </div>
           <select class="period-selector">
-            <option>Day</option>
-            <option>Week</option>
-            <option>Month</option>
+            <option value="minute">Per Menit</option>
+            <option value="hour">Per Jam</option>
+            <option value="day">Per Hari</option>
           </select>
         </div>
         <div class="chart-container">
@@ -185,5 +185,6 @@
     <script src="assets/js/script2.js"></script>
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/app-core.js"></script>
+    <script src="assets/js/weather.js"></script>
   </body>
 </html>
