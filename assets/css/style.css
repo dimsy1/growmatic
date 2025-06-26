@@ -1,362 +1,550 @@
 :root {
-    --primary-color: #00bfa5;
-    --primary-hover: #00897b;
-    --secondary-color: #00897b;
-    --accent-color: #ff7043;
-    --neumorphism-bg-color: #e0e5ec; /* Warna latar belakang utama untuk neumorphism */
-    --neumorphism-text-color: #535b66; /* Warna teks utama */
-    --neumorphism-light-shadow: #ffffff; /* Bayangan terang */
-    --neumorphism-dark-shadow: #a3b1c6; /* Bayangan gelap */
-    --neumorphism-card-radius: 20px; /* Radius sudut untuk card */
-    --neumorphism-element-radius: 15px; /* Radius sudut untuk elemen lain */
-    --transition: all 0.3s ease;
-    --bg-color: var(
-        --neumorphism-bg-color
-    ); /* Menggunakan variabel neumorphism */
-    --card-bg: var(
-        --neumorphism-bg-color
-    ); /* Card akan memiliki warna yang sama dengan background */
-    --text-color: var(--neumorphism-text-color);
-    --light-text: #78909c; /* Bisa disesuaikan dengan skema neumorphism */
+  --primary-color: #00bfa5;
+  --primary-hover: #00897b;
+  --secondary-color: #00897b;
+  --accent-color: #ff7043;
+  --neumorphism-bg-color: #e0e5ec; /* Warna latar belakang utama untuk neumorphism */
+  --neumorphism-text-color: #535b66; /* Warna teks utama */
+  --neumorphism-light-shadow: #ffffff; /* Bayangan terang */
+  --neumorphism-dark-shadow: #a3b1c6; /* Bayangan gelap */
+  --neumorphism-card-radius: 20px; /* Radius sudut untuk card */
+  --neumorphism-element-radius: 15px; /* Radius sudut untuk elemen lain */
+  --transition: all 0.3s ease;
+  --bg-color: var(
+    --neumorphism-bg-color
+  ); /* Menggunakan variabel neumorphism */
+  --card-bg: var(
+    --neumorphism-bg-color
+  ); /* Card akan memiliki warna yang sama dengan background */
+  --text-color: var(--neumorphism-text-color);
+  --light-text: #78909c; /* Bisa disesuaikan dengan skema neumorphism */
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", "Roboto", sans-serif;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.5;
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
 }
 
 .app-container {
-    max-width: 480px;
-    margin: 0 auto;
-    background-color: var(--bg-color);
-    min-height: 100vh; /* Menggunakan min-height agar bisa scroll jika konten panjang */
-    overflow-y: auto;
-    position: relative;
-    padding-bottom: 90px; /* Sesuaikan dengan tinggi bottom-nav */
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  min-height: 100vh; /* Menggunakan min-height agar bisa scroll jika konten panjang */
+  overflow-y: auto;
+  position: relative;
+  padding-bottom: 90px; /* Sesuaikan dengan tinggi bottom-nav */
 }
 
 /* Header Styles */
 .header {
-    background-color: var(--bg-color);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Neumorphism untuk header jika diinginkan, atau biarkan flat */
+  background-color: var(--bg-color);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .menu-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: var(--text-color);
-    cursor: pointer;
-    padding: 10px;
-    border-radius: var(--neumorphism-element-radius);
-    box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
-        -5px -5px 10px var(--neumorphism-light-shadow);
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: var(--neumorphism-element-radius);
+  box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
+    -5px -5px 10px var(--neumorphism-light-shadow);
 }
 .menu-btn:active {
-    box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
-        inset -5px -5px 10px var(--neumorphism-light-shadow);
+  box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+    inset -5px -5px 10px var(--neumorphism-light-shadow);
 }
 
 .weather-info {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--text-color);
-    padding: 10px 15px;
-    border-radius: var(--neumorphism-element-radius);
-    background-color: var(--neumorphism-bg-color);
-    box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
-        -5px -5px 10px var(--neumorphism-light-shadow);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-color);
+  padding: 10px 15px;
+  border-radius: var(--neumorphism-element-radius);
+  background-color: var(--neumorphism-bg-color);
+  box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
+    -5px -5px 10px var(--neumorphism-light-shadow);
 }
 
 .weather-temp {
-    font-size: 22px;
-    font-weight: 600;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 /* Card Grid */
 .card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px; /* Sedikit lebih besar untuk efek neumorphism */
-    padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* Sedikit lebih besar untuk efek neumorphism */
+  padding: 0 20px;
 }
 
 .card {
-    background-color: var(--card-bg);
-    border-radius: var(--neumorphism-card-radius);
-    padding: 20px;
-    box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
-        /* Bayangan luar */ -8px -8px 15px var(--neumorphism-light-shadow); /* Bayangan luar */
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
+  background-color: var(--card-bg);
+  border-radius: var(--neumorphism-card-radius);
+  padding: 20px;
+  box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
+    -8px -8px 15px var(--neumorphism-light-shadow); /* Bayangan luar */
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
 }
 .card:active {
-    /* Efek tekan untuk card */
-    box-shadow: inset 8px 8px 15px var(--neumorphism-dark-shadow),
-        inset -8px -8px 15px var(--neumorphism-light-shadow);
+  /* Efek tekan untuk card */
+  box-shadow: inset 8px 8px 15px var(--neumorphism-dark-shadow),
+    inset -8px -8px 15px var(--neumorphism-light-shadow);
 }
 
 .card-title {
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-color);
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .metric-card {
-    min-height: 160px;
+  min-height: 160px;
 }
 
 .card-icon {
-    width: 50px; /* Sedikit lebih besar */
-    height: 50px; /* Sedikit lebih besar */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    background-color: var(
-        --neumorphism-bg-color
-    ); /* Latar ikon sama dengan bg */
-    font-size: 22px; /* Sedikit lebih besar */
-    margin-bottom: 10px;
-    box-shadow: inset 3px 3px 6px var(--neumorphism-dark-shadow),
-        /* Bayangan ke dalam (inset) */ inset -3px -3px 6px
-            var(--neumorphism-light-shadow); /* Bayangan ke dalam (inset) */
+  width: 50px; /* Sedikit lebih besar */
+  height: 50px; /* Sedikit lebih besar */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  background-color: var(
+    --neumorphism-bg-color
+  ); /* Latar ikon sama dengan bg */
+  font-size: 22px; /* Sedikit lebih besar */
+  margin-bottom: 10px;
+  box-shadow: inset 3px 3px 6px var(--neumorphism-dark-shadow),
+    inset -3px -3px 6px
+      var(--neumorphism-light-shadow); /* Bayangan ke dalam (inset) */
 }
 
 .card-icon.accent {
-    color: var(--accent-color);
-    box-shadow: inset 3px 3px 6px var(--neumorphism-dark-shadow),
-        inset -3px -3px 6px var(--neumorphism-light-shadow);
+  color: var(--accent-color);
+  box-shadow: inset 3px 3px 6px var(--neumorphism-dark-shadow),
+    inset -3px -3px 6px var(--neumorphism-light-shadow);
 }
 
 /* Status and Values */
 .active-devices {
-    color: var(--light-text);
-    font-size: 14px;
-    margin-top: 5px;
+  color: var(--light-text);
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .metric-value {
-    display: flex;
-    align-items: baseline;
-    margin-top: 15px;
-    gap: 5px;
+  display: flex;
+  align-items: baseline;
+  margin-top: 15px;
+  gap: 5px;
 }
 
 .value {
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--text-color);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .unit {
-    font-size: 16px;
-    color: var(--light-text);
+  font-size: 16px;
+  color: var(--light-text);
 }
 
 /* Switch Styles (Neumorphism) */
 .switch-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
 }
 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px; /* Sedikit lebih lebar */
-    height: 30px; /* Sedikit lebih tinggi */
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Sedikit lebih lebar */
+  height: 30px; /* Sedikit lebih tinggi */
 }
 
 .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--neumorphism-bg-color);
-    transition: 0.4s;
-    border-radius: 30px; /* Disesuaikan dengan tinggi */
-    box-shadow: inset 4px 4px 8px var(--neumorphism-dark-shadow),
-        inset -4px -4px 8px var(--neumorphism-light-shadow);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--neumorphism-bg-color);
+  transition: 0.4s;
+  border-radius: 30px; /* Disesuaikan dengan tinggi */
+  box-shadow: inset 4px 4px 8px var(--neumorphism-dark-shadow),
+    inset -4px -4px 8px var(--neumorphism-light-shadow);
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 22px; /* Disesuaikan */
-    width: 22px; /* Disesuaikan */
-    left: 4px; /* Disesuaikan */
-    bottom: 4px; /* Disesuaikan */
-    background-color: #bdc3c7; /* Warna handle saat off, bisa disesuaikan */
-    transition: 0.4s;
-    border-radius: 50%;
-    box-shadow: 3px 3px 6px var(--neumorphism-dark-shadow),
-        -3px -3px 6px var(--neumorphism-light-shadow);
+  position: absolute;
+  content: "";
+  height: 22px; /* Disesuaikan */
+  width: 22px; /* Disesuaikan */
+  left: 4px; /* Disesuaikan */
+  bottom: 4px; /* Disesuaikan */
+  background-color: #bdc3c7; /* Warna handle saat off, bisa disesuaikan */
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 3px 3px 6px var(--neumorphism-dark-shadow),
+    -3px -3px 6px var(--neumorphism-light-shadow);
 }
 
 input:checked + .slider {
-    background-color: var(--neumorphism-bg-color); /* Background tetap sama */
-    box-shadow: inset 4px 4px 8px var(--neumorphism-dark-shadow),
-        /* Bayangan tetap inset */ inset -4px -4px 8px
-            var(--neumorphism-light-shadow);
+  background-color: var(--neumorphism-bg-color); /* Background tetap sama */
+  box-shadow: inset 4px 4px 8px var(--neumorphism-dark-shadow),
+    inset -4px -4px 8px
+      var(--neumorphism-light-shadow); /* Bayangan tetap inset */
 }
 
 input:checked + .slider:before {
-    transform: translateX(30px); /* Disesuaikan dengan lebar switch */
-    background-color: var(--primary-color); /* Warna handle saat on */
-    box-shadow: 3px 3px 6px var(--neumorphism-dark-shadow),
-        /* Bayangan handle tetap */ -3px -3px 6px
-            var(--neumorphism-light-shadow);
+  transform: translateX(30px); /* Disesuaikan dengan lebar switch */
+  background-color: var(--primary-color); /* Warna handle saat on */
+  box-shadow: 3px 3px 6px var(--neumorphism-dark-shadow),
+    -3px -3px 6px
+      var(--neumorphism-light-shadow); /* Bayangan handle tetap */
 }
 
-/* Consumption Section */
-.consumption {
-    background-color: var(--card-bg);
-    border-radius: var(--neumorphism-card-radius);
-    padding: 20px;
-    margin: 20px; /* Sesuaikan margin */
-    box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
-        -8px -8px 15px var(--neumorphism-light-shadow);
-    margin-bottom: 100px; /* Agar tidak tertutup bottom-nav */
+/* Scheduler Styles */
+.scheduler-container {
+  background-color: var(--card-bg);
+  border-radius: var(--neumorphism-card-radius);
+  padding: 20px;
+  margin: 20px; /* Sesuaikan dengan margin .consumption */
+  box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
+    -8px -8px 15px var(--neumorphism-light-shadow);
 }
 
-.consumption-header {
+.scheduler-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--neumorphism-dark-shadow);
+}
+.scheduler-header .switch-container {
+    margin-top: 0;
+}
+/* Styling for the main schedule header icon */
+.scheduler-header .header-icon {
+    margin-right: 10px;
+    color: var(--primary-color); /* Adjust color to match your theme */
+    font-size: 1.5rem; /* Larger icon for the header */
+}
+.scheduler-header h4 {
+    display: flex; /* Ensure h4 can contain flex items for icon and text */
+    align-items: center;
+    font-size: 1.2rem; /* Ensure h4 specific font size is maintained */
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+
+.scheduler-content {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.schedule-list-wrapper,
+.add-schedule-wrapper {
+  flex: 1;
+  min-width: 280px;
+}
+
+.schedule-list-wrapper h4,
+.add-schedule-wrapper h4 {
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#schedule-list {
+  list-style: none;
+  padding: 0;
+  /* Removed max-height and overflow-y to show all schedules */
+  padding-right: 5px; /* Memberi ruang untuk scrollbar */
+}
+
+#schedule-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--neumorphism-bg-color);
+  padding: 12px 15px;
+  border-radius: var(--neumorphism-element-radius);
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
+    -5px -5px 10px var(--neumorphism-light-shadow);
+}
+
+/* Styling for the new schedule icon */
+.schedule-icon {
+  margin-right: 10px;
+  color: var(--primary-color); /* You can adjust the color */
+  font-size: 1.2rem;
+}
+
+
+.delete-schedule-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 5px;
+  transition: var(--transition);
+}
+
+.delete-schedule-btn:hover {
+  transform: scale(1.1);
+}
+
+#add-schedule-form .time-input-group {
+  margin-bottom: 15px;
+}
+
+#add-schedule-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--light-text);
+  font-weight: 500;
+}
+
+#add-schedule-form .time-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#add-schedule-form input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: var(--neumorphism-element-radius);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: var(--neumorphism-bg-color);
+  box-shadow: inset 4px 4px 8px var(--neumorphism-dark-shadow),
+    inset -4px -4px 8px var(--neumorphism-light-shadow);
+  -moz-appearance: textfield; /* Firefox */
+}
+
+#add-schedule-form input[type=number]::-webkit-inner-spin-button,
+#add-schedule-form input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-schedule-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--neumorphism-element-radius);
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 15px;
+  font-size: 1rem;
+  box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
+    -5px -5px 10px var(--neumorphism-light-shadow);
+  transition: var(--transition);
+}
+
+.add-schedule-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.add-schedule-btn:active {
+  box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+    inset -5px -5px 10px var(--neumorphism-light-shadow);
+}
+
+/* Styling for disabled add schedule button */
+.add-schedule-btn.disabled-button {
+  background-color: var(--neumorphism-bg-color); /* Use the neutral background color */
+  color: var(--light-text); /* Lighter text color */
+  box-shadow: inset 2px 2px 5px var(--neumorphism-dark-shadow),
+              inset -2px -2px 5px var(--neumorphism-light-shadow); /* A slightly inset shadow */
+  cursor: not-allowed;
+  opacity: 0.8; /* Keep a slight opacity change to further emphasize, but the color change is primary */
+}
+
+/* Ensure hover and active states are overridden when disabled */
+.add-schedule-btn.disabled-button:hover,
+.add-schedule-btn.disabled-button:active {
+  background-color: var(--neumorphism-bg-color); /* No change on hover/active */
+  color: var(--light-text);
+  box-shadow: inset 2px 2px 5px var(--neumorphism-dark-shadow),
+              inset -2px -2px 5px var(--neumorphism-light-shadow);
+  transform: none; /* No scaling or other transforms */
+}
+
+
+/* Consumption Section */
+.consumption {
+  background-color: var(--card-bg);
+  border-radius: var(--neumorphism-card-radius);
+  padding: 20px;
+  margin: 20px; /* Sesuaikan margin */
+  box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
+    -8px -8px 15px var(--neumorphism-light-shadow);
+  margin-bottom: 100px; /* Agar tidak tertutup bottom-nav */
+}
+
+.consumption-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .consumption-cost {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--text-color);
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
 .consumption-label {
-    color: var(--light-text);
-    font-size: 14px;
+  color: var(--light-text);
+  font-size: 14px;
 }
 
 .period-selector {
-    padding: 10px 18px; /* Padding lebih besar */
-    border-radius: var(--neumorphism-element-radius);
-    border: none; /* Hapus border default */
-    background-color: var(--neumorphism-bg-color);
-    font-size: 14px;
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
-        -5px -5px 10px var(--neumorphism-light-shadow);
-    appearance: none; /* Hapus tampilan default select */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007AFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 0.65em auto;
-    padding-right: 40px; /* Ruang untuk panah */
+  padding: 10px 18px; /* Padding lebih besar */
+  border-radius: var(--neumorphism-element-radius);
+  border: none; /* Hapus border default */
+  background-color: var(--neumorphism-bg-color);
+  font-size: 14px;
+  color: var(--text-color);
+  cursor: pointer;
+  box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
+    -5px -5px 10px var(--neumorphism-light-shadow);
+  appearance: none; /* Hapus tampilan default select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23535b66%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 0.65em auto;
+  padding-right: 40px; /* Ruang untuk panah */
 }
 .period-selector:active {
-    box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
-        inset -5px -5px 10px var(--neumorphism-light-shadow);
+  box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+    inset -5px -5px 10px var(--neumorphism-light-shadow);
 }
 
 .chart-container {
-    height: 150px;
-    margin-top: 20px;
-    border-radius: var(--neumorphism-element-radius);
-    padding: 10px;
-    background-color: var(--neumorphism-bg-color);
-    box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
-        /* Bayangan ke dalam untuk area chart */ inset -5px -5px 10px
-            var(--neumorphism-light-shadow);
+  height: 150px;
+  margin-top: 20px;
+  border-radius: var(--neumorphism-element-radius);
+  padding: 10px;
+  background-color: var(--neumorphism-bg-color);
+  box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
+    inset -5px -5px 10px
+      var(--neumorphism-light-shadow); /* Bayangan ke dalam untuk area chart */
+}
+
+/* CSS untuk waktu perangkat */
+.device-time {
+  font-size: 14px;
+  color: var(--light-text);
+  font-weight: 500;
+  margin-top: 2px;
 }
 
 /* Sidebar Style (Jika digunakan) */
 .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 260px; /* Sedikit lebih lebar */
-    height: 100%;
-    background-color: var(
-        --neumorphism-bg-color
-    ); /* Warna sidebar sama dengan background */
-    color: var(--text-color); /* Teks sesuai tema neumorphism */
-    padding: 25px;
-    box-shadow: 8px 0 15px var(--neumorphism-dark-shadow),
-        /* Bayangan samping */ -8px 0 15px var(--neumorphism-light-shadow); /* Bayangan samping */
-    z-index: 1000;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 260px; /* Sedikit lebih lebar */
+  height: 100%;
+  background-color: var(
+    --neumorphism-bg-color
+  ); /* Warna sidebar sama dengan background */
+  color: var(--text-color); /* Teks sesuai tema neumorphism */
+  padding: 25px;
+  box-shadow: 8px 0 15px var(--neumorphism-dark-shadow);
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.active {
+    transform: translateX(0);
 }
 
 .sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .sidebar-header h2 {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--text-color);
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
 .close-btn {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 22px; 
-    cursor: pointer;
-    padding: 8px;
-    /* border-radius: 50%;
-    box-shadow: 4px 4px 8px var(--neumorphism-dark-shadow),
-        -4px -4px 8px var(--neumorphism-light-shadow); */
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 8px;
 }
-/* .close-btn:active {
-    box-shadow: inset 4px 4px 8px var(--neumorphism-dark-shadow),
-        inset -4px -4px 8px var(--neumorphism-light-shadow);
-} */
+
 /* Styling untuk sidebar menu */
 .sidebar-menu {
   list-style: none;
@@ -383,14 +571,14 @@ input:checked + .slider:before {
   border-radius: var(--neumorphism-element-radius);
   transition: var(--transition);
   box-shadow: 3px 3px 6px var(--neumorphism-dark-shadow),
-              -3px -3px 6px var(--neumorphism-light-shadow);
+    -3px -3px 6px var(--neumorphism-light-shadow);
 }
 
 .sidebar-menu li a:hover,
 .sidebar-menu li a.active {
   color: var(--primary-color);
   box-shadow: inset 3px 3px 6px var(--neumorphism-dark-shadow),
-              inset -3px -3px 6px var(--neumorphism-light-shadow);
+    inset -3px -3px 6px var(--neumorphism-light-shadow);
 }
 
 /* Submenu styling */
@@ -409,7 +597,11 @@ input:checked + .slider:before {
 .submenu li a {
   font-size: 14px;
   padding: 10px 15px;
-  background-color: rgba(0,0,0,0.05);
+  box-shadow: none;
+  background-color: transparent;
+}
+.submenu li a:hover {
+    background-color: rgba(0,0,0,0.05);
 }
 
 /* Dropdown icon animation */
@@ -439,71 +631,26 @@ input:checked + .slider:before {
 }
 
 .logout-item a:hover {
-  background-color: rgba(231, 76, 60, 0.1);
-}
-
-.logout-btn {
-    width: 100%;
-    padding: 18px; /* Padding lebih besar */
-    background-color: var(--neumorphism-bg-color);
-    border: none;
-    border-radius: var(--neumorphism-element-radius);
-    color: var(--accent-color); /* Warna teks logout */
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 30px;
-    cursor: pointer;
-    box-shadow: 5px 5px 10px var(--neumorphism-dark-shadow),
-        -5px -5px 10px var(--neumorphism-light-shadow);
-    transition: var(--transition);
-}
-.logout-btn:hover {
-    color: #d32f2f; /* Warna lebih gelap saat hover */
-}
-.logout-btn:active {
-    box-shadow: inset 5px 5px 10px var(--neumorphism-dark-shadow),
-        inset -5px -5px 10px var(--neumorphism-light-shadow);
-}
-.logout-btn i {
-    font-size: 18px;
+    color: white !important;
+    background-color: #e74c3c;
 }
 
 .toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 4px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1000;
+  visibility: hidden;
 }
 
 .toast.show {
-    opacity: 1;
-}
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, 20px);
-    }
-    10% {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-    90% {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, 20px);
-    }
+  opacity: 1;
+  visibility: visible;
 }

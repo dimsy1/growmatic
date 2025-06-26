@@ -18,12 +18,24 @@
     />
     <link rel="apple-touch-icon" href="assets/images/logo.png" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <!-- Link ke file CSS eksternal -->
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- === Konfigurasi Spesifik Perangkat untuk Dashboard ini === -->
+    <script>
+      const CURRENT_DEVICE_HOSTNAME = "grow-matic-3";
+      const CURRENT_THINGER_DEVICE_ID = "grow_matic_3";
+      const THINGER_USERNAME_DASHBOARD = "dimas-y";
+      const THINGER_API_TOKEN_DASHBOARD = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJ0b2tlbl9kYXNoYm9hcmRfMyIsInN2ciI6ImFwLXNvdXRoZWFzdC5hd3MudGhpbmdlci5pbyIsInVzciI6ImRpbWFzLXkifQ.8TOw6eyDEialwoPcVBgyEV45lUcmxvRjVmUuRRWtvZY"; 
+    </script>
+    
   </head>
   <body>
     <!-- Sidebar -->
@@ -35,7 +47,6 @@
         </button>
       </div>
       <ul class="sidebar-menu">
-        <!-- Dashboard dengan sub-menu -->
         <li class="has-submenu">
           <a href="#" class="submenu-toggle">
             <i class="fas fa-tachometer-alt"></i>
@@ -43,55 +54,16 @@
             <i class="fas fa-chevron-down dropdown-icon"></i>
           </a>
           <ul class="submenu">
-            <li>
-              <a href="dashboard.html"
-                ><i class="fas fa-circle-notch"></i> Dashboard 1</a
-              >
-            </li>
-            <li>
-              <a href="dashboard2.html"
-                ><i class="fas fa-circle-notch"></i> Dashboard 2</a
-              >
-            </li>
-            <li>
-              <a href="dashboard3.html"
-                ><i class="fas fa-circle-notch"></i> Dashboard 3</a
-              >
-            </li>
-            <li>
-              <a href="dashboard4.html"
-                ><i class="fas fa-circle-notch"></i> Dashboard 4</a
-              >
-            </li>
+            <li><a href="dashboard.html"><i class="fas fa-circle-notch"></i> Dashboard 1</a></li>
+            <li><a href="dashboard2.html"><i class="fas fa-circle-notch"></i> Dashboard 2</a></li>
+            <li><a href="dashboard3.html"><i class="fas fa-circle-notch"></i> Dashboard 3</a></li>
+            <li><a href="dashboard4.html"><i class="fas fa-circle-notch"></i> Dashboard 4</a></li>
           </ul>
         </li>
-
-        <!-- Setting -->
-        <li>
-          <a href="setting.html">
-            <i class="fas fa-cog"></i>
-            <span>Settings</span>
-          </a>
-        </li>
-
-        <!-- Profile -->
-        <li>
-          <a href="profile.html">
-            <i class="fas fa-user"></i>
-            <span>Profile</span>
-          </a>
-        </li>
-
-        <!-- Spacer untuk memisahkan konten dengan logout -->
+        <li><a href="setting.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+        <li><a href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
         <div class="menu-spacer"></div>
-
-        <!-- Logout -->
-        <li class="logout-item">
-          <a href="/">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Logout</span>
-          </a>
-        </li>
+        <li class="logout-item"><a href="/"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
       </ul>
     </div>
 
@@ -104,6 +76,8 @@
         <div class="user-info">
           <div>
             <div class="user-greeting"><b>DASHBOARD 3</b></div>
+            <!-- ELEMEN BARU UNTUK WAKTU PERANGKAT -->
+            <!-- <div class="device-time" id="device-time-value">--:--:--</div> -->
           </div>
         </div>
         <div class="weather-info">
@@ -118,41 +92,33 @@
       <div class="card-grid">
         <!-- Temperature Card -->
         <div class="card metric-card">
-          <div class="card-icon">
-            <i class="fas fa-temperature-high"></i>
-          </div>
+          <div class="card-icon"><i class="fas fa-temperature-high"></i></div>
           <div class="card-title">Suhu</div>
           <div class="metric-value">
             <div class="value" id="suhu-value">--</div>
             <div class="unit">°C</div>
           </div>
           <div class="switch-container">
-            <span>Status</span>
-            <span class="active-devices">Real-time</span>
+            <span>Status</span><span class="active-devices">Real-time</span>
           </div>
         </div>
 
         <!-- Humidity Card -->
         <div class="card metric-card">
-          <div class="card-icon accent">
-            <i class="fas fa-tint"></i>
-          </div>
+          <div class="card-icon accent"><i class="fas fa-tint"></i></div>
           <div class="card-title">Kelembaban</div>
           <div class="metric-value">
             <div class="value" id="kelembaban-value">--</div>
             <div class="unit">%</div>
           </div>
           <div class="switch-container">
-            <span>Status</span>
-            <span class="active-devices">Real-time</span>
+            <span>Status</span><span class="active-devices">Real-time</span>
           </div>
         </div>
 
         <!-- Relay Control Card -->
         <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-power-off"></i>
-          </div>
+          <div class="card-icon"><i class="fas fa-power-off"></i></div>
           <div class="card-title">Pompa</div>
           <div class="active-devices" id="relay-status">Status: OFF</div>
           <div class="switch-container">
@@ -164,19 +130,61 @@
           </div>
         </div>
 
-        <!-- Mode Card -->
+        <!-- Auto Mode Card -->
         <div class="card">
-          <div class="card-icon accent">
-            <i class="fas fa-robot"></i>
-          </div>
-          <div class="card-title">Mode</div>
-          <div class="active-devices" id="mode-status">Status: Otomatis</div>
+          <div class="card-icon accent"><i class="fas fa-robot"></i></div>
+          <div class="card-title">Mode Otomatis</div>
+          <div class="active-devices" id="auto-mode-status">Status: Nonaktif</div>
           <div class="switch-container">
             <span>Otomatis</span>
             <label class="switch">
-              <input type="checkbox" id="mode-toggle" checked />
+              <input type="checkbox" id="auto-mode-toggle" />
               <span class="slider"></span>
             </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- UI Penjadwalan dengan Toggle Terintegrasi -->
+      <div class="scheduler-container">
+        <div class="scheduler-header">
+          <h4><i class="fas fa-calendar-alt header-icon"></i>Pengaturan Jadwal</h4>
+          <div class="switch-container">
+            <span id="schedule-mode-status">Mode Jadwal</span>
+            <label class="switch">
+              <input type="checkbox" id="schedule-mode-toggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="scheduler-content">
+          <div class="schedule-list-wrapper">
+            <h4>Jadwal Aktif</h4>
+            <ul id="schedule-list"></ul>
+          </div>
+          <div class="add-schedule-wrapper">
+            <h4>Tambah Jadwal Baru</h4>
+            <form id="add-schedule-form">
+              <div class="time-input-group">
+                <label for="start-hour">Waktu Mulai</label>
+                <div class="time-inputs">
+                  <input type="number" id="start-hour" placeholder="JJ" min="0" max="23" required />
+                  <span>:</span>
+                  <input type="number" id="start-minute" placeholder="MM" min="0" max="59" required />
+                </div>
+              </div>
+              <div class="time-input-group">
+                <label for="end-hour">Waktu Selesai</label>
+                <div class="time-inputs">
+                  <input type="number" id="end-hour" placeholder="JJ" min="0" max="23" required />
+                  <span>:</span>
+                  <input type="number" id="end-minute" placeholder="MM" min="0" max="59" required />
+                </div>
+              </div>
+              <button type="submit" class="add-schedule-btn">
+                <i class="fas fa-plus-circle"></i> Tambah
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -188,11 +196,11 @@
             <div class="consumption-cost">Data History</div>
             <div class="consumption-label">Monitoring</div>
           </div>
-          <select class="period-selector">
+          <!-- <select class="period-selector">
             <option value="minute">Per Menit</option>
             <option value="hour">Per Jam</option>
             <option value="day">Per Hari</option>
-          </select>
+          </select> -->
         </div>
         <div class="chart-container">
           <canvas id="consumption-chart"></canvas>
@@ -200,6 +208,7 @@
       </div>
     </div>
 
+    <!-- Link ke file JavaScript eksternal Anda -->
     <script src="assets/js/script3.js"></script>
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/app-core.js"></script>

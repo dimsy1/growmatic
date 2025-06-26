@@ -6,10 +6,11 @@
 
 .settings-card {
     background: var(--neumorphism-bg);
-    border-radius: var(--neumorphism-element-radius);
+    border-radius: var(--neumorphism-card-radius);
     padding: 25px;
     margin-bottom: 25px;
-    box-shadow: var(--neumorphism-shadow);
+    box-shadow: 8px 8px 15px var(--neumorphism-dark-shadow),
+        -8px -8px 15px var(--neumorphism-light-shadow);
 }
 
 .settings-title {
@@ -29,6 +30,7 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
+    color: var(--text-color);
 }
 
 .form-control {
@@ -36,14 +38,27 @@
     padding: 12px 15px;
     border-radius: var(--neumorphism-element-radius);
     border: none;
-    background: var(--neumorphism-bg);
+    background: var(--neumorphism-bg-color);
     box-shadow: inset 3px 3px 6px var(--neumorphism-dark-shadow),
         inset -3px -3px 6px var(--neumorphism-light-shadow);
     font-size: 16px;
+    color: var(--text-color);
 }
 
-.btn-save {
-    background: var(--primary-color);
+/* Style untuk select dropdown agar sesuai tema */
+select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23535b66%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 0.65em auto;
+  padding-right: 40px;
+}
+
+
+.btn-save, .btn-scan {
     color: white;
     border: none;
     padding: 12px 25px;
@@ -53,10 +68,37 @@
     transition: all 0.3s;
     box-shadow: 3px 3px 6px var(--neumorphism-dark-shadow),
         -3px -3px 6px var(--neumorphism-light-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
 }
 
-.btn-save:hover {
-    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+.btn-save {
+    background: var(--primary-color);
+}
+
+/* GAYA BARU UNTUK TOMBOL SCAN */
+.btn-scan {
+    background: #3498db; /* Warna biru untuk pembeda */
+    margin-bottom: 20px;
+}
+
+
+.btn-save:hover, .btn-scan:hover {
+    filter: brightness(110%);
+}
+
+.btn-save:active, .btn-scan:active {
+    box-shadow: inset 3px 3px 6px var(--neumorphism-dark-shadow),
+        inset -3px -3px 6px var(--neumorphism-light-shadow);
+}
+
+.btn-save:disabled, .btn-scan:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    box-shadow: none;
 }
 
 .device-status {

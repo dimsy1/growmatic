@@ -17,11 +17,40 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/images/profile.png" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/setting.css" />
+    <style>
+      .password-input-group {
+        position: relative;
+      }
+      .password-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 5px;
+        z-index: 10;
+      }
+    </style>
+    
+    <!-- === Daftar Semua Hostname Perangkat untuk Konfigurasi Global === -->
+    <script>
+      const ALL_DEVICE_HOSTNAMES = [
+        "grow-matic-1",
+        "grow-matic-2",
+        "grow-matic-3",
+        "grow-matic-4"
+      ];
+    </script>
+    
   </head>
   <body>
+    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h2>Menu</h2>
@@ -30,7 +59,6 @@
         </button>
       </div>
       <ul class="sidebar-menu">
-        <!-- Dashboard dengan sub-menu -->
         <li class="has-submenu">
           <a href="#" class="submenu-toggle">
             <i class="fas fa-tachometer-alt"></i>
@@ -38,55 +66,16 @@
             <i class="fas fa-chevron-down dropdown-icon"></i>
           </a>
           <ul class="submenu">
-            <li>
-              <a href="dashboard.html"
-                ><i class="fas fa-circle-notch"></i> Dashboard 1</a
-              >
-            </li>
-            <li>
-              <a href="dashboard2.html"
-                ><i class="fas fa-circle-notch"></i> Dashboard 2</a
-              >
-            </li>
-            <li>
-              <a href="dashboard3.html"
-                ><i class="fas fa-circle-notch"></i> Dashboard 3</a
-              >
-            </li>
-            <li>
-              <a href="dashboard4.html"
-                ><i class="fas fa-circle-notch"></i> Dashboard 4</a
-              >
-            </li>
+            <li><a href="dashboard1.html"><i class="fas fa-circle-notch"></i> Dashboard 1</a></li>
+            <li><a href="dashboard2.html"><i class="fas fa-circle-notch"></i> Dashboard 2</a></li>
+            <li><a href="dashboard3.html"><i class="fas fa-circle-notch"></i> Dashboard 3</a></li>
+            <li><a href="dashboard4.html"><i class="fas fa-circle-notch"></i> Dashboard 4</a></li>
           </ul>
         </li>
-
-        <!-- Setting -->
-        <li>
-          <a href="setting.html">
-            <i class="fas fa-cog"></i>
-            <span>Settings</span>
-          </a>
-        </li>
-
-        <!-- Profile -->
-        <li>
-          <a href="profile.html">
-            <i class="fas fa-user"></i>
-            <span>Profile</span>
-          </a>
-        </li>
-
-        <!-- Spacer untuk memisahkan konten dengan logout -->
+        <li><a href="setting.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+        <li><a href="profile.html"><i class="fas fa-user"></i><span>Profil</span></a></li>
         <div class="menu-spacer"></div>
-
-        <!-- Logout -->
-        <li class="logout-item">
-          <a href="/">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Logout</span>
-          </a>
-        </li>
+        <li class="logout-item"><a href="/"><i class="fas fa-sign-out-alt"></i><span>Keluar</span></a></li>
       </ul>
     </div>
 
@@ -111,37 +100,41 @@
         <!-- WiFi Configuration Card -->
         <div class="settings-card">
           <h2 class="settings-title">
-            <i class="fas fa-wifi"></i> WiFi Configuration
+            <i class="fas fa-wifi"></i> Konfigurasi WiFi
           </h2>
 
-          <div class="device-status status-connected">
-            <i class="fas fa-circle"></i>
-            <span>ESP32 Device Connected</span>
+          <!-- Tombol Scan WiFi -->
+          <button type="button" class="btn-scan" id="scan-wifi-btn">
+            <i class="fas fa-search"></i> Pindai Jaringan WiFi
+          </button>
+          
+          <!-- Hasil Pindaian: Selalu terlihat -->
+          <div class="form-group" id="scan-results-container">
+            <label for="wifi-ssid-select">Pilih Jaringan</label>
+            <select id="wifi-ssid-select" class="form-control">
+                <option value="">-- Pindai untuk memilih jaringan --</option>
+            </select>
           </div>
 
           <form id="wifiForm">
             <div class="form-group">
-              <label for="wifi-ssid">WiFi SSID</label>
-              <input
-                type="text"
-                id="wifi-ssid"
-                class="form-control"
-                placeholder="Enter WiFi name"
-              />
+              <label for="wifi-password">Password WiFi</label>
+              <div class="password-input-group">
+                <input
+                  type="password"
+                  id="wifi-password"
+                  class="form-control"
+                  placeholder="Masukkan password WiFi"
+                />
+                <button type="button" id="toggle-password" class="password-toggle">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="wifi-password">WiFi Password</label>
-              <input
-                type="password"
-                id="wifi-password"
-                class="form-control"
-                placeholder="Enter WiFi password"
-              />
-            </div>
-
-            <button type="submit" class="btn-save">
-              <i class="fas fa-save"></i> Save Configuration
+            <!-- Tombol submit WiFi, diberikan ID unik -->
+            <button type="submit" class="btn-save" id="submit-wifi-btn">
+              <i class="fas fa-save"></i> Simpan & Restart Perangkat
             </button>
           </form>
         </div>
@@ -149,46 +142,28 @@
         <!-- System Info Card -->
         <div class="settings-card">
           <h2 class="settings-title">
-            <i class="fas fa-info-circle"></i> System Information
+            <i class="fas fa-info-circle"></i> Informasi Sistem
           </h2>
-
           <div class="form-group">
-            <label>App Version</label>
-            <input
-              type="text"
-              class="form-control"
-              value="Grow Matic v2.1.5"
-              readonly
-            />
+            <label>Versi Aplikasi</label>
+            <input type="text" class="form-control" value="Grow Matic v2.1.5" readonly/>
           </div>
-
           <div class="form-group">
-            <label>Last Updated</label>
-            <input
-              type="text"
-              class="form-control"
-              value="2023-11-15 14:30:22"
-              readonly
-            />
+            <label>Terakhir Diperbarui</label>
+            <input type="text" class="form-control" value="2023-11-15 14:30:22" readonly/>
           </div>
-
           <div class="form-group">
-            <label>Device Firmware</label>
-            <input
-              type="text"
-              class="form-control"
-              value="ESP32 v1.0.3"
-              readonly
-            />
+            <label>Firmware Perangkat</label>
+            <input type="text" class="form-control" value="ESP32 v1.0.3" readonly/>
           </div>
-
           <button class="btn-save" style="background: #3498db">
-            <i class="fas fa-sync-alt"></i> Check for Updates
+            <i class="fas fa-sync-alt"></i> Periksa Pembaruan
           </button>
         </div>
       </div>
     </div>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/setting.js"></script>
     <script src="assets/js/app-core.js"></script>
