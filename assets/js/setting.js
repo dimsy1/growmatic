@@ -3,8 +3,7 @@
 // ====================================================================
 
 // Alamat dasar perangkat ESP32 yang DIBEBANKAN untuk melakukan pemindaian WiFi.
-// Ini akan selalu grow-matic-1, tidak peduli halaman setting mana yang diakses.
-const SCAN_DEVICE_HOSTNAME = "grow-matic-3"; // Hostname ESP32 yang bertanggung jawab untuk scan
+const SCAN_DEVICE_HOSTNAME = "grow-matic-1"; // Hostname ESP32 yang bertanggung jawab untuk scan
 const SCAN_DEVICE_URL = `http://${SCAN_DEVICE_HOSTNAME}.local`;
 
 // Elemen-elemen DOM
@@ -178,7 +177,7 @@ async function setWifi(e) {
           showToast("Konfigurasi WiFi berhasil dikirim ke semua perangkat!", false);
       } else {
           const failedDevices = results.filter(r => !r.success).map(r => r.device).join(', ');
-          showToast(`Beberapa perangkat gagal dikonfigurasi: ${failedDevices}. Cek detail di konsol browser.`, true);
+          showToast(`Beberapa perangkat gagal dikonfigurasi: ${failedDevices}. Cek detail pada LCD perangkat.`, true);
           console.error("Detail Konfigurasi WiFi Global:", results);
       }
 
